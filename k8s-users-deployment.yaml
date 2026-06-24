@@ -19,6 +19,7 @@ spec:
         app-name: music-store
         service-name: users
         env: prod
+#        sidecar.istio.io/inject: "false"
     spec:
       securityContext:
         runAsNonRoot: true
@@ -97,6 +98,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: users-pvc
 spec:
+  storageClassName: wkld01-cluster01-optimal-datastore-default-policy-autoraid
   accessModes:
     - ReadWriteOnce
   resources:

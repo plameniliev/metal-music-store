@@ -29,6 +29,7 @@ spec:
         app-name: music-store
         service-name: traffic-generator
         env: prod
+#        sidecar.istio.io/inject: "false"
       annotations:
         kubernetes.io/change-cause: "Initial deployment of traffic generator with Selenium automation"
         date: "2024-01-$(date +%d)"

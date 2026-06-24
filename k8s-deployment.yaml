@@ -3,6 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: music-store-1-pvc
 spec:
+  storageClassName: wkld01-cluster01-optimal-datastore-default-policy-autoraid
   accessModes:
     - ReadWriteOnce
   resources:
@@ -26,6 +27,7 @@ spec:
         service-name: store
         env: prod
       annotations:
+        ambient.io/bypass-inbound-capture: "true"
         kubernetes.io/change-cause: "Added 10-second timeout with center screen notification for cart and users service communication failures"
         date: "2024-01-$(date +%d)"
         timestamp: "$(date +%s)"
@@ -86,4 +88,3 @@ spec:
       protocol: TCP
       port: 5000
       targetPort: 5000
-      nodePort: 30007 

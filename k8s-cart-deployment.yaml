@@ -3,6 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: cart-pvc
 spec:
+  storageClassName: wkld01-cluster01-optimal-datastore-default-policy-autoraid
   accessModes:
     - ReadWriteOnce
   resources:
@@ -40,6 +41,7 @@ spec:
         app-name: music-store
         service-name: cart
         env: prod
+#        sidecar.istio.io/inject: "false"
       annotations:
         kubernetes.io/change-cause: "Fixed cart clearing after purchase, updated success message"
         date: "2024-01-$(date +%d)"
